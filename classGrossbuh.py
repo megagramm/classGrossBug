@@ -22,13 +22,10 @@ class Student:
         return ret
 
     def average_grades(self):
-        print(self.average_grades_by_course)
-        for course, grades in stud1.grades.items():
-            # avg_by_course.append(round(mean(grades), 2))
-            self.average_grades_by_course.append(round(sum(grades) / len(grades), 2))
-            print(course)
-        # print(self.average_grades_by_course)
-        # return round(mean(self.avg_by_course),2)
+        for course, grades in self.grades.items():
+            self.average_grades_by_course.append(round(mean(grades), 2))
+            # self.average_grades_by_course.append(round(sum(grades) / len(grades), 2))
+        return round(mean(self.average_grades_by_course), 2)
 
     def add_courses(self, course_name):
         self.finished_courses.append(course_name)

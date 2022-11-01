@@ -85,7 +85,8 @@ print(stud1, stud2, stud3, sep="\n")
 
 
 
-#####
+##### ##### ##### ##### ##### эксперименты
+
 obj_stud = set()
 for i in range(4):
     obj_stud.update({'stud'+str(i): []})
