@@ -1,7 +1,5 @@
-from statistics import mean
 from classGrossbuh import *
 from service import *
-
 
 rprint("Создали студентов")
 

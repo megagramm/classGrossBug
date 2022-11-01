@@ -1,3 +1,6 @@
+from statistics import mean
+
+
 class Student:
     def __init__(self, name, surname, gender):
         self.name = name
