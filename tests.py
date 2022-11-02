@@ -86,11 +86,7 @@ print(stud1, stud2, stud3, sep="\n")
 
 
 #  эксперименты
-students = [
-    ['Андрей', 'Андреев', 'male'],
-    ['Сергей', 'Сергеев', 'male'],
-    ['Петр', 'Петров', 'male']
-]
+
 
 rprint("Сравниваю лекторов")
 
@@ -99,7 +95,38 @@ lect1 > lect2
 rprint("Сравниваю студентов")
 stud1 > stud2
 
-obj_stud = dict()
-for i in range(len(students)):
-    obj_stud.update({'stud'+str(i+1): Student(students[i][0], students[i][1], students[i][2])})
+# print(123)
+# obj_stud = dict()
+# for i in range(len(students)):
+#     obj_stud.update({'stud'+str(i+1): Student(students[i][0], students[i][1], students[i][2])})
 # print(obj_stud['stud1'].name)
+
+# 4
+"""
+1. для подсчета средней оценки за домашние задания по всем студентам в рамках конкретного курса 
+(в качестве аргументов принимаем список студентов и название курса);
+2. для подсчета средней оценки за лекции всех лекторов в рамках курса 
+(в качестве аргумента принимаем список лекторов и название курса).
+"""
+
+
+def students_average_grades_by_course(students, course):
+    av = []
+    for student in students:
+        av.append(mean(student.grades[course]))
+    return round(mean(av), 2)
+
+
+def lecturers_average_grades_by_course(lecturers, course):
+    av = []
+    for lecturer in lecturers:
+        av.append(mean(lecturer.grades[course]))
+    return round(mean(av), 2)
+
+
+students = [stud1, stud2]
+course = "Python"
+print(f'Средняя оценка у студентов по {course} = {students_average_grades_by_course(students, course)}')
+lecturers = [lect1, lect2]
+course = "Git"
+print(f'Средняя оценка у лекторов по {course} = {lecturers_average_grades_by_course(lecturers, course)}')

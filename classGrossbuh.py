@@ -10,7 +10,6 @@ class Student:
         self.grades = {}
         self.average_grades_by_course = list()
 
-
     def __str__(self):
         ret = f'Имя: {self.name}\nФамилия: {self.surname}\n'
 

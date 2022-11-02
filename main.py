@@ -72,5 +72,31 @@ stud2 > stud1
 rprint('Выводим лекторов')
 print(lect1, lect2, sep="\n")
 
+rprint('Сравниваем лекторов')
 lect1 > lect2
 lect2 > lect1
+
+
+rprint('Четвертое задание')
+
+
+def students_average_grades_by_course(students, course):
+    av = []
+    for student in students:
+        av.append(mean(student.grades[course]))
+    return round(mean(av), 2)
+
+
+def lecturers_average_grades_by_course(lecturers, course):
+    av = []
+    for lecturer in lecturers:
+        av.append(mean(lecturer.grades[course]))
+    return round(mean(av), 2)
+
+
+students = [stud1, stud2]
+course = "Python"
+print(f'Средняя оценка у студентов по {course} = {students_average_grades_by_course(students, course)}')
+lecturers = [lect1, lect2]
+course = "Git"
+print(f'Средняя оценка у лекторов по {course} = {lecturers_average_grades_by_course(lecturers, course)}')
