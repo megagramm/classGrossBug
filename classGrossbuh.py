@@ -46,6 +46,31 @@ class Student:
         else:
             return print('Ошибка: Либо студент не учится на этом курсе, либо лектор этот курс не ведет')
 
+    def __lt__(self, other):
+        if isinstance(other, Student):
+            print(f"Сравнение студентов: {other.name} {other.surname} и {self.name} {self.surname}")
+            for other_course, other_values in other.grades.items():
+                for self_course, self_values in self.grades.items():
+                    if other_course == self_course:
+                        if mean(other_values) > mean(self_values):
+                            print(f'По {other_course} {other.name} {other.surname} лучше {self.name} {self.surname}')
+                        else:
+                            print(f'По {other_course} {self.name} {self.surname} лучше {other.name} {other.surname}')
+                       
+                        """
+                        if self.average_grades_by_course(other, other_course) > self.average_grades_by_course(self, self_course):
+                            print(f'По {other_course} {other.name} {other.surname} лучше {self.name} {self.surname}')
+                        else:
+                            print(f'По {other_course} {self.name} {self.surname} лучше {other.name} {other.surname}')
+                        """
+        else:
+            return 'this is not a Student'
+
+    def average_grades_by_course(self, student, course):
+        if isinstance(student, Student):
+            return round(mean(student.grades[course]), 2)
+
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -75,25 +100,12 @@ class Lecturer(Mentor):
                             print(f'По {other_course} {other.name} {other.surname} лучше {self.name} {self.surname}')
                         else:
                             print(f'По {other_course} {self.name} {self.surname} лучше {other.name} {other.surname}')
-                # print(other_course, other_values)
-            # for self_course, self_values in self.grades.items():
-            #     print(self_course, self_values)
-                # self.average_grades(other,other_course)
-
-            # print(self.average_grades(), other.average_grades())
-            # return 'nn'
-            # return self.average_grades(self, other)
         else:
             return 'this is not a Lecturer'
 
     def average_grades(self, lecturer, course):
         if isinstance(lecturer, Lecturer) and course in lecturer.grades:
-            # print(lecturer.grades.values())
             return round(mean(lecturer.grades[course]), 2)
-
-                # lecturer.average_grades_by_course.append(round(mean(grades), 2))
-            # return round(mean(lecturer.average_grades_by_course), 2)
-        return
 
 
 class Reviewer(Mentor):

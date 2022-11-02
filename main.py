@@ -68,21 +68,5 @@ print(lect1, lect2, sep="\n")
 rprint('Выводим студентов')
 print(stud1, stud2, sep="\n")
 
-print(stud1 > stud2)
-print(stud2 > stud1)
-
-
-#  эксперименты
-students = [
-    ['Андрей', 'Андреев', 'male'],
-    ['Сергей', 'Сергеев', 'male'],
-    ['Петр', 'Петров', 'male']
-]
-
-print(lect1.grades)
-print(lect2.grades)
-
-obj_stud = dict()
-for i in range(len(students)):
-    obj_stud.update({'stud'+str(i+1): Student(students[i][0], students[i][1], students[i][2])})
-# print(obj_stud['stud1'].name)
+stud1 > stud2
+stud2 > stud1

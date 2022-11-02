@@ -83,8 +83,6 @@ print(lect1, lect2, sep="\n")
 rprint('Выводим студентов')
 print(stud1, stud2, stud3, sep="\n")
 
-print(stud1 > stud2)
-print(stud2 > stud1)
 
 
 #  эксперименты
@@ -94,13 +92,12 @@ students = [
     ['Петр', 'Петров', 'male']
 ]
 
-# print(lect1.grades)
-# print(lect2.grades)
-# print(lect1.grades['Python'])
-# exit()ч
 rprint("Сравниваю лекторов")
-# print(lect1.name)
+
 lect1 > lect2
+
+rprint("Сравниваю студентов")
+stud1 > stud2
 
 obj_stud = dict()
 for i in range(len(students)):
