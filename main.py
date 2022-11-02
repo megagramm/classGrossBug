@@ -63,10 +63,14 @@ stud2.rate_lecturer(lect2, 'Java', 9)
 stud1.rate_lecturer(lect2, 'Git', 8)
 stud2.rate_lecturer(lect2, 'Git', 10)
 
-print(lect1, lect2, sep="\n")
-
 rprint('Выводим студентов')
 print(stud1, stud2, sep="\n")
 
 stud1 > stud2
 stud2 > stud1
+
+rprint('Выводим лекторов')
+print(lect1, lect2, sep="\n")
+
+lect1 > lect2
+lect2 > lect1

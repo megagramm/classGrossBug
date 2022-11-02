@@ -1,6 +1,5 @@
 from statistics import mean
 
-
 class Student:
     def __init__(self, name, surname, gender):
         self.name = name
@@ -11,11 +10,6 @@ class Student:
         self.grades = {}
         self.average_grades_by_course = list()
 
-    def __lt__(self, other):
-        if isinstance(other, Student):
-            return self.average_grades() > other.average_grades()
-        else:
-            return 'this is not a Student'
 
     def __str__(self):
         ret = f'Имя: {self.name}\nФамилия: {self.surname}\n'
@@ -46,30 +40,23 @@ class Student:
         else:
             return print('Ошибка: Либо студент не учится на этом курсе, либо лектор этот курс не ведет')
 
+    def av(self, student, course):
+        """Считаем среднии оценки по курсу"""
+        if isinstance(student, Student) and course in student.grades:
+            return round(mean(student.grades[course]), 2)
+
     def __lt__(self, other):
         if isinstance(other, Student):
             print(f"Сравнение студентов: {other.name} {other.surname} и {self.name} {self.surname}")
             for other_course, other_values in other.grades.items():
                 for self_course, self_values in self.grades.items():
                     if other_course == self_course:
-                        if mean(other_values) > mean(self_values):
+                        if self.av(other, other_course) > self.av(self, self_course):
                             print(f'По {other_course} {other.name} {other.surname} лучше {self.name} {self.surname}')
                         else:
                             print(f'По {other_course} {self.name} {self.surname} лучше {other.name} {other.surname}')
-                       
-                        """
-                        if self.average_grades_by_course(other, other_course) > self.average_grades_by_course(self, self_course):
-                            print(f'По {other_course} {other.name} {other.surname} лучше {self.name} {self.surname}')
-                        else:
-                            print(f'По {other_course} {self.name} {self.surname} лучше {other.name} {other.surname}')
-                        """
         else:
             return 'this is not a Student'
-
-    def average_grades_by_course(self, student, course):
-        if isinstance(student, Student):
-            return round(mean(student.grades[course]), 2)
-
 
 
 class Mentor:
