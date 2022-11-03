@@ -1,6 +1,9 @@
 from statistics import mean
 
+
 class Student:
+    student_list = []
+
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
@@ -9,6 +12,7 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
         self.average_grades_by_course = list()
+        self.student_list.append(self)
 
     def __str__(self):
         ret = f'Имя: {self.name}\nФамилия: {self.surname}\n'
@@ -72,9 +76,12 @@ class Mentor:
 
 
 class Lecturer(Mentor):
+    lecturer_list = []
+
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.grades = {}
+        self.lecturer_list.append(self)
 
     def __lt__(self, other):
         if isinstance(other, Lecturer):

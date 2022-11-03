@@ -5,6 +5,9 @@ rprint("Создали студентов")
 
 stud1 = Student('Иван', 'Иванов', 'male')
 stud1.courses_in_progress += ['Python', 'Java', 'Git']
+Student.student_list[0].courses_in_progress += ['Питон', 'Жава', 'Гит']
+print(stud1.courses_in_progress)
+exit()
 stud1.finished_courses += ('Введение в программирование', 'Английский для программистов')
 
 stud2 = Student('Пётр', 'Петров', 'male')
@@ -95,12 +98,6 @@ lect1 > lect2
 rprint("Сравниваю студентов")
 stud1 > stud2
 
-# print(123)
-# obj_stud = dict()
-# for i in range(len(students)):
-#     obj_stud.update({'stud'+str(i+1): Student(students[i][0], students[i][1], students[i][2])})
-# print(obj_stud['stud1'].name)
-
 # 4
 """
 1. для подсчета средней оценки за домашние задания по всем студентам в рамках конкретного курса 
@@ -130,3 +127,9 @@ print(f'Средняя оценка у студентов по {course} = {stude
 lecturers = [lect1, lect2]
 course = "Git"
 print(f'Средняя оценка у лекторов по {course} = {lecturers_average_grades_by_course(lecturers, course)}')
+
+
+print(Student.student_list)
+print(Student.student_list[0].name, Student.student_list[1].name)
+for student in Student.student_list:
+    print(student.name)

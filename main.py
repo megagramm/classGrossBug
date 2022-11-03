@@ -94,9 +94,7 @@ def lecturers_average_grades_by_course(lecturers, course):
     return round(mean(av), 2)
 
 
-students = [stud1, stud2]
 course = "Python"
-print(f'Средняя оценка у студентов по {course} = {students_average_grades_by_course(students, course)}')
-lecturers = [lect1, lect2]
+print(f'Средняя оценка у студентов по {course} = {students_average_grades_by_course(Student.student_list, course)}')
 course = "Git"
-print(f'Средняя оценка у лекторов по {course} = {lecturers_average_grades_by_course(lecturers, course)}')
+print(f'Средняя оценка у лекторов по {course} = {lecturers_average_grades_by_course(Lecturer.lecturer_list, course)}')
